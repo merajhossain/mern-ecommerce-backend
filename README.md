@@ -52,10 +52,10 @@ root/src/routes/api.js <br />
 
 Change these variable data on .env files
 
-PORT = 4000
-SMTP_HOST = mail.teamrabbil.com
-SMTP_USER = info@teamrabbil.com
-SMTP_PASS = ~sR4[bhaC[Qs
+PORT = 4000 <br />
+SMTP_HOST = mail.teamrabbil.com <br />
+SMTP_USER = info@teamrabbil.com <br />
+SMTP_PASS = ~sR4[bhaC[Qs <br />
 
 
 
