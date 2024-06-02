@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "06f53f04-78d3-4968-b64d-3e2089945aef",
+		"name": "mern-ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7140906"
+	},
+	"item": [
+		{
+			"name": "ReadProfile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/UserOTP/merajhossain29@gmail.com",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"UserOTP",
+						"merajhossain29@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VerifyLogin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/api/ReadProfile",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ReadProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userID\": \"65a2c4b1f1ae62750f402665\",\r\n  \"cus_add\": \"Shekhertek 8,Mohammadpur, Adabor, Dhaka-1207\",\r\n  \"cus_city\": \"Dhaka update\",\r\n  \"cus_country\": \"Bangladesh\",\r\n  \"cus_fax\": \"01785388919\",\r\n  \"cus_name\": \"Rabbil Hasan\",\r\n  \"cus_phone\": \"01785388919\",\r\n  \"cus_postcode\": \"1207\",\r\n  \"cus_state\": \"Dhaka\",\r\n  \"ship_add\": \"Shekhertek 8,Mohammadpur, Adabor, Dhaka-1207\",\r\n  \"ship_city\": \"Dhaka\",\r\n  \"ship_country\": \"Bangladesh\",\r\n  \"ship_name\": \"Rabbil Hasan\",\r\n  \"ship_phone\": \"01785388919\",\r\n  \"ship_postcode\": \"1207\",\r\n  \"ship_state\": \"Dhaka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/UpdateProfile",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"UpdateProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VerifyLogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/VerifyLogin/merajhossain29@gmail.com/936795",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"VerifyLogin",
+						"merajhossain29@gmail.com",
+						"936795"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/UserLogout",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"UserLogout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductBrandList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductBrandList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductBrandList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductCategoryList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductCategoryList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductCategoryList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductSliderList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductSliderList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductSliderList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductListByBrand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductListByBrand/64f8751a502e1b80556da144",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductListByBrand",
+						"64f8751a502e1b80556da144"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductListByCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductListByCategory/64f875ed502e1b80556da14d",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductListByCategory",
+						"64f875ed502e1b80556da14d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductListBySmilier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductListBySmilier/64f875ed502e1b80556da14d",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductListBySmilier",
+						"64f875ed502e1b80556da14d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductListByKeyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductListByKeyword/a",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductListByKeyword",
+						"a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductListByRemark",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductListByRemark/popular",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductListByRemark",
+						"popular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductDetails/654dbf25abda0c85053c9902",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductDetails",
+						"654dbf25abda0c85053c9902"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductReviewList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/ProductReviewList/64f8ba608fcc62fe3de37a2e",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"ProductReviewList",
+						"64f8ba608fcc62fe3de37a2e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CartList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/CartList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"CartList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveCartList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productID\": \"64f8ba608fcc62fe3de37a2e\",\r\n  \"userID\": \"65c7a4892b03f4390304383a\",\r\n  \"color\": \"Red update\",\r\n  \"price\": \"123\",\r\n  \"qty\": \"1\",\r\n  \"size\": \"17\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/SaveCartList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"SaveCartList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveCartList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\" : \"65c7a4c26c06c3f9f1585b2a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/RemoveCartList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"RemoveCartList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WishList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/WishList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"WishList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveWishList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productID\": \"64f8ba608fcc62fe3de37a2e\",\r\n    \"userID\": \"665c8f06595591e0020e5100\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/SaveWishList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"SaveWishList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveWishList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"65ba23a72b03f43903bb9b2d\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/RemoveWishList",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"RemoveWishList"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:4000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lcmFqaG9zc2FpbjI5QGdtYWlsLmNvbSIsInVzZXJfaWQiOiI2NjVjOGYwNjU5NTU5MWUwMDIwZTUxMDAiLCJpYXQiOjE3MTczNDMyMTEsImV4cCI6MTcxNzQyOTYxMX0.RnFkHfvbzM_dmkTxzZadI-j7r6N6AZ96xrr-3JIe53Q",
+			"type": "string"
+		}
+	]
+}
