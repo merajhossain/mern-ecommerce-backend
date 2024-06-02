@@ -17,39 +17,45 @@ npm start
   Navigate to `http://localhost:4000`
 
 # API Document endpoints
-'/ProductSliderList'
-'/ProductListByBrand/:BrandID'
-'/ProductListByCategory/:CategoryID'
-'/ProductListBySmilier/:CategoryID'
-'/ProductListByKeyword/:Keyword'
-'/ProductListByRemark/:Remark'
-'/ProductDetails/:ProductID'
-'/ProductReviewList/:ProductID'
-'/UserOTP/:email'
-'/VerifyLogin/:email/:otp'
-'/UserLogout'
-'/CreateProfile'
-'/UpdateProfile'
-'/ReadProfile'
-'/SaveWishList'
-'/RemoveWishList'
-'/WishList'
-'/SaveCartList'
-'/RemoveCartList'
-'/CartList'
+'/ProductSliderList' </br>
+'/ProductListByBrand/:BrandID' </br>
+'/ProductListByCategory/:CategoryID' </br>
+'/ProductListBySmilier/:CategoryID' </br>
+'/ProductListByKeyword/:Keyword' </br>
+'/ProductListByRemark/:Remark' </br>
+'/ProductDetails/:ProductID' </br>
+'/ProductReviewList/:ProductID' </br>
+'/UserOTP/:email' </br>
+'/VerifyLogin/:email/:otp' </br>
+'/UserLogout' </br>
+'/CreateProfile' </br>
+'/UpdateProfile' </br>
+'/ReadProfile' </br>
+'/SaveWishList' </br>
+'/RemoveWishList' </br>
+'/WishList' </br>
+'/SaveCartList' </br>
+'/RemoveCartList' </br>
+'/CartList' </br>
 
 # Postman collection 
   root/todolist-application.postman_collection.json 
 
 # Import database
- root/taskManagement.json <br />
+ root/data <br />
 
  Import database on mongo compass 
 
- change db path on app.js line number 23 <br />
+ change db path on app.js line number 25 <br />
 
-  root/src/routes/api.js
+root/src/routes/api.js <br />
 
+Change these variable data on .env files
+
+PORT = 4000
+SMTP_HOST = mail.teamrabbil.com
+SMTP_USER = info@teamrabbil.com
+SMTP_PASS = ~sR4[bhaC[Qs
 
 
 
