@@ -1,15 +1,26 @@
-const jwt = require('jsonwebtoken');
-module.exports = (req, res, next) => {
-    let token = req.headers['token'];
-    console.log('token', token);
-    jwt.verify(token, "123-xyz", function(err, decodedData) {
-        if(err){
-            console.log('err', err);
-            res.status(401).json({status : "unauthorize"})
-        }else{
-            let email = decodedData['data'];
-            req.headers.email = email;
-            next();
-        }
-    });
+const {DecodeToken} = require("../utility/JWTToken");
+module.exports=(req,res,next)=>{
+
+    // Receive Token
+    let token=req.headers['token']
+    if(!token){
+        token=req.cookies['token']
+    }
+
+
+  // Token Decode
+  let decoded=DecodeToken(token)
+
+
+  // Request Header Email+UserID Add
+  if(decoded===null){
+      return res.status(401).json({status:"fail", message:"Unauthorized"})
+  }
+  else {
+    let email=decoded['email'];
+    let user_id=decoded['user_id'];
+    req.headers.email=email;
+    req.headers.user_id=user_id;
+    next();
+  }
 }

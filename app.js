@@ -6,6 +6,7 @@ const cors = require('cors');
 const hpp = require('hpp');
 const rateLimit  = require('express-rate-limit');
 const mongoose = require('mongoose');
+const dotenv = require("dotenv");
 
 
 const app = new express;
@@ -15,12 +16,13 @@ app.use(helmet());
 app.use(hpp());
 app.use(express.json({limit : '20mb'}));
 app.use(express.urlencoded({extended : true}));
+dotenv.config();
 
 
 const limiter = rateLimit({windowMs: 15 * 60 * 1000, max:3000});
 app.use(limiter);
  
-let mongodbUrl = 'mongodb://localhost:27017/taskManagement';
+let mongodbUrl = 'mongodb://localhost:27017/ecom4';
 let OPTION={user:"", pass:"", autoIndex:true};
 
 mongoose.connect(mongodbUrl, OPTION).then((res) => {

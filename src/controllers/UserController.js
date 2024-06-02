@@ -1,54 +1,45 @@
-const userModel = require("../models/UserModel");
-const jwt = require('jsonwebtoken');
+const { UserOTPService, VerifyOTPService, SaveProfileService, ReadProfileService } = require("../services/UserServices")
 
-exports.UserRegistration=async (req, res) => {
-    try {
-       let reqBody = req.body;
-       console.log('reqBody', reqBody);
-       await userModel.create(reqBody);
-       res.json({status : "success", message: "registration successfully"});
-    } catch (error) {
-        res.json({status:"fail", message:error});
+exports.UserOTP=async (req,res)=>{
+    let result=await UserOTPService(req)
+    return res.status(200).json(result)
+}
+
+
+exports.VerifyLogin=async (req,res)=>{
+    let result=await VerifyOTPService(req)
+
+    if(result['status']==="success"){
+
+        // Cookies Option
+        let cookieOption={expires:new Date(Date.now()+24*6060*1000), httpOnly:false}
+
+        // Set Cookies With Response
+        res.cookie('token',result['token'],cookieOption)
+        return res.status(200).json(result)
+
+    }else {
+        return res.status(200).json(result)
     }
 }
 
-exports.UserLogin =async (req, res) => {
-    try {
-       let reqBody = req.body;
-       let user = await userModel.find(reqBody);
-       if (user.length > 0) {
-           let Payload = {exp:Math.floor(Date.now()/1000)*(24*60*60), data:reqBody['email']};
-           let token = jwt.sign(Payload, "123-xyz");
-           res.json({status : "login success", message: "user found", token:token, id: user[0]._id});
-       }else{
-           res.json({status : "login fails", message: "user not found"});
-       }
-    } catch (error) {
-        res.json({status:"login fail", message:error});
-    }
+exports.UserLogout=async (req,res)=>{
+    let cookieOption={expires:new Date(Date.now()-24*6060*1000), httpOnly:false}
+    res.cookie('token',"",cookieOption)
+    return res.status(200).json({status:"success"})
 }
 
-exports.GetProfile =async (req, res) => {
-    try{
-
-        let email=req.headers['email'];
-        let result=await userModel.find({email:email})
-        res.json({status:"success",data:result})
-
-    }catch (err) {
-        res.json({status:"fail",message:err})
-    }
+exports.CreateProfile=async (req,res)=>{
+    let result=await SaveProfileService(req)
+    return res.status(200).json(result)
 }
 
-exports.UpdateProfile =async (req, res) => {
-    try{
-        let email=req.headers['email'];
-        let reqBody=req.body;
-        console.log('reqBody', email);
-        await userModel.updateOne({email:email},reqBody);
-        res.json({status:"success",message:"Update Completed"})
+exports.UpdateProfile=async (req,res)=>{
+    let result=await SaveProfileService(req)
+    return res.status(200).json(result)
+}
 
-    }catch (err) {
-        res.json({status:"fail",message:err})
-    }
+exports.ReadProfile=async (req,res)=>{
+    let result=await ReadProfileService(req)
+    return res.status(200).json(result)
 }

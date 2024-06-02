@@ -1,11 +1,8 @@
 const mongoose=require('mongoose');
 
 const DatabaseScheme = mongoose.Schema({
-    email: { type: String, unique: true, required: true },
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    mobile: { type: String, required: true },
-    password: { type: String, required: true }
-}, { versionKey: 'true' });
+    email: { type: String, required: true },
+    otp: { type: String, required: true }
+},{timestamps:true,versionKey:false});
 
-module.exports = mongoose.model('users', DatabaseScheme);
+module.exports = mongoose.model('UserModel', DatabaseScheme);
